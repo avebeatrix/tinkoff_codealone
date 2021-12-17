@@ -8,7 +8,7 @@ let getResult = (data) => {
 	for(let i = 2; i <=count; i++) {
 		let digits = parse_ints(data[i]);
 		let base = [...arr];
-		let new_arr = []
+		let new_arr = [];
 		digits.forEach(digit => {		
 			new_arr = [...new_arr, ...base.map(val => val.toString()+digit.toString())];
 		});

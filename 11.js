@@ -40,7 +40,7 @@ let getResult = (data) => {
 	return result.reduce((acc, val, index) => acc += val * (index + 1));
 }
 const { count } = require('console');
-console.log('start: ' + Date.now());
+
 const fs = require('fs');
 let fileContent = fs.readFileSync("input.txt", "utf8");
 
@@ -49,4 +49,3 @@ const data = fileContent.toString().trim().split("\n");
 const result = getResult(data);
 
 fs.writeFileSync("output.txt", result.toString());
-console.log('end: ' + Date.now());

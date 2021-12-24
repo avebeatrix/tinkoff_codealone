@@ -23,7 +23,7 @@ let getResult = (data) => {
 				break;
 		}
 	});
-	console.log(x+' '+y);
+	
 	let result = '';
 	if (y < 0) {
 		result = new Array(Math.abs(y)).fill('D').join('');

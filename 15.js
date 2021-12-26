@@ -20,7 +20,7 @@ let getResult = (data) => {
 
 	let check = (m, type) => {
 		if (getSum(type, m) < getSum(type, m-1)) return true;
-
+		if (getSum(type, m) < getSum(type, m-1)) return true;
 		return false;
 	}
 

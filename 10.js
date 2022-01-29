@@ -1,3 +1,23 @@
+var largestRectangleArea = function(heights) {    
+    
+    let n = heights.length;
+    let max = 0;     	
+    let stack = [];
+          
+    for(let i = 0; i <= n; i++) {  
+        let step = 0;
+        let bar = heights[i] || 0;
+        while(stack.length && stack[stack.length-1][1] >= bar) {
+            let [w, h] = stack.pop();
+            step += w;
+			max = Math.max(max, step * h);
+        }
+        stack.push([step+1, bar]);                   
+    }    
+	return max;	
+};
+
+
 let getResult = (data) => {
 
 	let parse_ints = str => {
@@ -7,24 +27,7 @@ let getResult = (data) => {
 	let n = parseInt(data[0]);
 	let arr = parse_ints(data[1]);	
 	
-	let cur;
-	let max = 0;
-	for(let k = 1; k < 10000; k++) {
-		for(let i = 0; i < n - 1; i++) {
-			if (arr[i]>=k){
-				cur = k;
-				for(let j = i + 1; j < n; j++) {
-					if (arr[j] >= k) {
-						cur += k;
-					} else {							
-						break;
-					}			
-				}
-				max = Math.max(max, cur);	
-			}				
-		}
-	}
-	return max;		
+	return largestRectangleArea(arr);		
 }
 const { count } = require('console');
 //console.log('start: ' + Date.now());
